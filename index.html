@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Haldwani ka apna street food app. Momos, Rolls, Chaat — same street price, ghar pe delivery." />
+  <title>Street Eats — Haldwani ka Street Food App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ──────────────────────────────────────────── */
+    :root {
+      --orange:    #FF6B2B;
+      --orange-dk: #E55A1C;
+      --navy:      #1A1A2E;
+      --card:      #0F3460;
+      --surface:   #16213E;
+      --gold:      #FFD700;
+      --white:     #FFFFFF;
+      --muted:     #A0A8C0;
+      --green:     #00C48C;
+      --red:       #FF4757;
+
+      --font-display: 'Baloo 2', cursive;
+      --font-body:    'Inter', sans-serif;
+
+      --r-sm: 10px;
+      --r-md: 16px;
+      --r-lg: 24px;
+    }
+
+    /* ─── RESET ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      /* bottom padding so sticky CTA doesn't cover content */
+      padding-bottom: 80px;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── HEADER ──────────────────────────────────────────── */
+    header {
+      background: var(--surface);
+      padding: 14px 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--orange);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+    .logo span { color: var(--orange); }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    .hero {
+      padding: 40px 20px 36px;
+      text-align: center;
+      background: var(--navy);
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--card);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .hero h1 .accent { color: var(--orange); }
+
+    .hero-sub {
+      font-size: 0.97rem;
+      color: var(--muted);
+      max-width: 360px;
+      margin: 0 auto 28px;
+      line-height: 1.65;
+    }
+    .hero-sub strong { color: var(--white); }
+
+    /* ─── PRICE STAMP ─────────────────────────────────────── */
+    .price-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1.5px solid var(--green);
+      border-radius: var(--r-sm);
+      padding: 9px 16px;
+      margin-bottom: 30px;
+      font-size: 0.88rem;
+      color: var(--green);
+      font-weight: 600;
+    }
+    .price-stamp .dot {
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(1.4); }
+    }
+
+    /* ─── PRIMARY CTA BUTTON ──────────────────────────────── */
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 16px 24px;
+      border-radius: var(--r-md);
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: background 0.18s, transform 0.12s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-primary:active {
+      background: var(--orange-dk);
+      transform: scale(0.97);
+    }
+    .btn-primary .play-icon {
+      width: 22px; height: 22px;
+      flex-shrink: 0;
+    }
+
+    .hero-note {
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ─── FOOD ITEMS TICKER ───────────────────────────────── */
+    .ticker-wrap {
+      overflow: hidden;
+      background: var(--surface);
+      padding: 10px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .ticker {
+      display: flex;
+      gap: 32px;
+      white-space: nowrap;
+      animation: ticker-scroll 18s linear infinite;
+    }
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker span {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .ticker span .emoji { margin-right: 4px; }
+
+    /* ─── SECTION COMMONS ─────────────────────────────────── */
+    section {
+      padding: 36px 20px;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 24px;
+      line-height: 1.25;
+    }
+
+    /* ─── USP GRID ────────────────────────────────────────── */
+    .usp-section { background: var(--surface); }
+
+    .usp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .usp-card {
+      background: var(--card);
+      border-radius: var(--r-md);
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .usp-card .icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+    .usp-card .usp-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+    .usp-card .usp-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .usp-card.highlight {
+      border: 1.5px solid var(--orange);
+    }
+
+    /* ─── HOW IT WORKS ────────────────────────────────────── */
+    .how-section { background: var(--navy); }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      position: relative;
+    }
+    /* connector line */
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 44px;
+      bottom: -10px;
+      width: 2px;
+      background: var(--card);
+    }
+    .step-num {
+      width: 40px; height: 40px;
+      min-width: 40px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+    }
+    .step-body {
+      padding-bottom: 28px;
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+    .step-desc {
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    /* ─── SOCIAL PROOF ────────────────────────────────────── */
+    .proof-section { background: var(--surface); }
+
+    .reviews {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .review-card {
+      background: var(--card);
+      border-radius: var(--r-md);
+      padding: 16px;
+    }
+    .review-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+    .reviewer-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .reviewer-tag {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 1px; }
+    .review-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .review-text strong { color: var(--white); font-style: normal; }
+
+    /* ─── STATS BAR ───────────────────────────────────────── */
+    .stats-bar {
+      background: var(--card);
+      display: flex;
+      justify-content: space-around;
+      padding: 24px 16px;
+      border-radius: var(--r-md);
+      margin: 0 20px 36px;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* ─── FINAL CTA SECTION ───────────────────────────────── */
+    .cta-section {
+      background: var(--navy);
+      text-align: center;
+      padding: 36px 20px 40px;
+    }
+    .cta-section .section-title { margin-bottom: 6px; }
+    .cta-section .sub {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 24px;
+    }
+
+    /* ─── STICKY BOTTOM BAR ───────────────────────────────── */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--surface);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 10px 20px;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sticky-bar .sticky-text {
+      flex: 1;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+    .sticky-bar .sticky-text strong {
+      display: block;
+      color: var(--white);
+      font-size: 0.88rem;
+    }
+    .sticky-bar .btn-sticky {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 800;
+      padding: 11px 18px;
+      border-radius: var(--r-sm);
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, transform 0.1s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .sticky-bar .btn-sticky:active {
+      background: var(--orange-dk);
+      transform: scale(0.96);
+    }
+    .sticky-bar .btn-sticky svg { width: 16px; height: 16px; }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--surface);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer a { color: var(--orange); }
+
+    /* ─── DESKTOP ─────────────────────────────────────────── */
+    @media (min-width: 480px) {
+      body { padding-bottom: 0; }
+      .sticky-bar { display: none; }
+      .hero h1 { font-size: 2.6rem; }
+      .usp-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (min-width: 768px) {
+      .hero { padding: 60px 20px 56px; }
+      .hero h1 { font-size: 3rem; }
+    }
+
+    /* ─── REDUCED MOTION ──────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .ticker { animation: none; }
+      .dot    { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════ HEADER ════ -->
+  <header>
+    <div class="logo">🥟 Street<span>Eats</span></div>
+  </header>
+
+  <!-- ════ HERO ════ -->
+  <section class="hero">
+    <div class="hero-eyebrow">🏙️ Sirf Haldwani Ke Liye</div>
+
+    <h1>
+      Haldwani Ka<br>
+      <span class="accent">Apna Street Food App</span>
+    </h1>
+
+    <p class="hero-sub">
+      Momos, Rolls, Chaat — apne favorite local stalls se<br>
+      <strong>WAHI STREET PRICE</strong> pe ghar pe delivery.
+    </p>
+
+    <div class="price-stamp">
+      <span class="dot"></span>
+      Ab Available on Google Play
+    </div>
+
+    <a href="https://play.google.com/store/apps/details?id=com.streeteats.hld"
+       target="_blank" rel="noopener"
+       class="btn-primary"
+       onclick="handleCTAClick('hero_download')">
+      <svg class="play-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 20.5v-17c0-.83 1-.92 1.5-.5l15 8.5-15 8.5c-.5.42-1.5.33-1.5-.5z"/>
+      </svg>
+      Download App Now
+    </a>
+
+    <p class="hero-note">Free Download · Android · Haldwani Only</p>
+  </section>
+
+  <!-- ════ FOOD TICKER ════ -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      <span><span class="emoji">🥟</span>Momos</span>
+      <span><span class="emoji">🌯</span>Rolls</span>
+      <span><span class="emoji">🍔</span>Burger</span>
+      <span><span class="emoji">🍝</span>Chowmein</span>
+      <span><span class="emoji">🍕</span>Pizza</span>
+      <span><span class="emoji">🥗</span>Chaat</span>
+      <span><span class="emoji">🍜</span>Maggi</span>
+      <span><span class="emoji">🥪</span>Sandwich</span>
+      <span><span class="emoji">🧋</span>Shakes</span>
+      <span><span class="emoji">🌮</span>Samosa</span>
+      <!-- duplicate for seamless loop -->
+      <span><span class="emoji">🥟</span>Momos</span>
+      <span><span class="emoji">🌯</span>Rolls</span>
+      <span><span class="emoji">🍔</span>Burger</span>
+      <span><span class="emoji">🍝</span>Chowmein</span>
+      <span><span class="emoji">🍕</span>Pizza</span>
+      <span><span class="emoji">🥗</span>Chaat</span>
+      <span><span class="emoji">🍜</span>Maggi</span>
+      <span><span class="emoji">🥪</span>Sandwich</span>
+      <span><span class="emoji">🧋</span>Shakes</span>
+      <span><span class="emoji">🌮</span>Samosa</span>
+    </div>
+  </div>
+
+  <!-- ════ USP GRID ════ -->
+  <section class="usp-section">
+    <p class="section-label">Kyun Street Eats?</p>
+    <h2 class="section-title">Koi Chakkar Nahi 🙅</h2>
+
+    <div class="usp-grid">
+      <div class="usp-card highlight">
+        <div class="icon">💸</div>
+        <div class="usp-title">Same Street Prices</div>
+        <div class="usp-desc">Zero markup. Jo stall pe milta hai wahi rate.</div>
+      </div>
+      <div class="usp-card">
+        <div class="icon">🛵</div>
+        <div class="usp-title">Free Delivery + COD</div>
+        <div class="usp-desc">Cash on delivery. Koi card nahi chahiye.</div>
+      </div>
+      <div class="usp-card">
+        <div class="icon">✅</div>
+        <div class="usp-title">Min. Order ₹149</div>
+        <div class="usp-desc">Chhoti order bhi hoti hai. Koi pressure nahi.</div>
+      </div>
+      <div class="usp-card">
+        <div class="icon">🎁</div>
+        <div class="usp-title">Mystery Gift</div>
+        <div class="usp-desc">Har order ke saath ek surprise gift pakka.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ STATS ════ -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">30<span style="font-size:1rem">min</span></div>
+      <div class="stat-label">Avg Delivery</div>
+    </div>
+    <div class="stat" style="border-left:1px solid rgba(255,255,255,0.08); border-right:1px solid rgba(255,255,255,0.08); padding: 0 16px;">
+      <div class="stat-num">5–9<span style="font-size:1rem">pm</span></div>
+      <div class="stat-label">Daily Open</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">₹0</div>
+      <div class="stat-label">Delivery Fee</div>
+    </div>
+  </div>
+
+  <!-- ════ HOW IT WORKS ════ -->
+  <section class="how-section">
+    <p class="section-label">3 Simple Steps</p>
+    <h2 class="section-title">Order Karo, Aaram Karo 🛋️</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">App Download Karo</div>
+          <div class="step-desc">Google Play se free mein install karo. 30 second ka kaam.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Apna Stall Chuno</div>
+          <div class="step-desc">Nearby vendors dekho, menu check karo, apni pasandida cheez add karo cart mein.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Ghar Baitho, Food Aayega</div>
+          <div class="step-desc">COD select karo, order karo. Rider 30 min mein deliver karega. Cash on delivery.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ REVIEWS ════ -->
+  <section class="proof-section">
+    <p class="section-label">Log Kya Bol Rahe Hain</p>
+    <h2 class="section-title">Real Reviews ⭐</h2>
+
+    <div class="reviews">
+      <div class="review-card">
+        <div class="review-top">
+          <div class="avatar">R</div>
+          <div>
+            <div class="reviewer-name">Rahul S.</div>
+            <div class="reviewer-tag">Student, Haldwani</div>
+          </div>
+          <div class="stars" style="margin-left:auto">★★★★★</div>
+        </div>
+        <p class="review-text">"Yaar sach mein <strong>same price</strong> milte hain — Swiggy wali extra charge nahi. Momos garam aaye, 22 minute mein. Solid app hai."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="avatar" style="background:var(--card); border: 1.5px solid var(--orange);">P</div>
+          <div>
+            <div class="reviewer-name">Priya V.</div>
+            <div class="reviewer-tag">Working Professional</div>
+          </div>
+          <div class="stars" style="margin-left:auto">★★★★★</div>
+        </div>
+        <p class="review-text">"COD option ne trust diya. First order mein <strong>mystery gift</strong> bhi aaya — ek extra momo box 🤩. Ab daily order karti hoon 5 baje."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="avatar" style="background: #0F3460; border: 1.5px solid var(--gold);">A</div>
+          <div>
+            <div class="reviewer-name">Arjun K.</div>
+            <div class="reviewer-tag">College Hostel, Kathgodam</div>
+          </div>
+          <div class="stars" style="margin-left:auto">★★★★★</div>
+        </div>
+        <p class="review-text">"Hostel mein rehte hain, bahar jaana nahi hota evenings mein. Street Eats ne <strong>zindagi badal di</strong> bhai. IPL + Momos = 🔥"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FINAL CTA ════ -->
+  <section class="cta-section">
+    <p class="section-label">Abhi Download Karo</p>
+    <h2 class="section-title">Kal Se Nahi,<br>Aaj Se Shuru Karo 🚀</h2>
+    <p class="sub">5 PM se 9 PM — Roz fresh delivery, Haldwani mein.</p>
+
+    <a href="https://play.google.com/store/apps/details?id=com.streeteats.hld"
+       target="_blank" rel="noopener"
+       class="btn-primary"
+       style="margin-bottom: 16px;"
+       onclick="handleCTAClick('final_download')">
+      <svg class="play-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 20.5v-17c0-.83 1-.92 1.5-.5l15 8.5-15 8.5c-.5.42-1.5.33-1.5-.5z"/>
+      </svg>
+      Get it on Google Play
+    </a>
+    <p class="hero-note">Free · Android Only · Haldwani Exclusive</p>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <footer>
+    <p>© 2025 Street Eats · Haldwani, Uttarakhand</p>
+    <p style="margin-top: 6px;">
+      Instagram: <a href="https://instagram.com/streeteats.hld" target="_blank" rel="noopener">@streeteats.hld</a>
+    </p>
+  </footer>
+
+  <!-- ════ STICKY BOTTOM BAR (mobile only) ════ -->
+  <div class="sticky-bar">
+    <div class="sticky-text">
+      <strong>Street Eats — Free Download</strong>
+      COD · Same Street Prices · Haldwani
+    </div>
+    <a href="https://play.google.com/store/apps/details?id=com.streeteats.hld"
+       target="_blank" rel="noopener"
+       class="btn-sticky"
+       onclick="handleCTAClick('sticky_download')">
+      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 20.5v-17c0-.83 1-.92 1.5-.5l15 8.5-15 8.5c-.5.42-1.5.33-1.5-.5z"/>
+      </svg>
+      Download
+    </a>
+  </div>
+
+  <script>
+    /**
+     * CTA click handler — replace with Meta Pixel / GTM event later
+     * e.g: fbq('track', 'Lead', { content_name: source });
+     */
+    function handleCTAClick(source) {
+      console.log('[Street Eats] CTA clicked:', source);
+      // TODO: replace below with Meta Pixel code
+      // fbq('track', 'Lead', { content_name: source });
+    }
+
+    // Hide sticky bar once user scrolls to bottom (optional UX polish)
+    const stickyBar = document.querySelector('.sticky-bar');
+    const finalCTA  = document.querySelector('.cta-section');
+
+    if (stickyBar && finalCTA && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          stickyBar.style.opacity = entry.isIntersecting ? '0' : '1';
+          stickyBar.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(finalCTA);
+    }
+  </script>
+</body>
+</html>
