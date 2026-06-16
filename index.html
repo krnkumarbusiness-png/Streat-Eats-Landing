@@ -2,145 +2,182 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Haldwani ka apna street food app. Momos, Rolls, Chaat — same street price, ghar pe delivery." />
-  <title>Street Eats — Haldwani ka Street Food App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Haldwani ka apna street food app. Momos, Rolls, Chaat — same street price, ghar pe delivery. Min order ₹149 only." />
+  <meta property="og:title" content="Streat Eats — Haldwani Ka Street Food App" />
+  <meta property="og:description" content="Ghar Baithe Street Ka Swad. Free delivery, COD available, min order ₹149 only!" />
+  <title>Streat Eats — Ghar Baithe Street Ka Swad</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── TOKENS ──────────────────────────────────────────── */
+    /* ─── DESIGN TOKENS ───────────────────────────────────── */
     :root {
-      --orange:    #FF6B2B;
-      --orange-dk: #E55A1C;
-      --navy:      #1A1A2E;
-      --card:      #0F3460;
-      --surface:   #16213E;
-      --gold:      #FFD700;
-      --white:     #FFFFFF;
-      --muted:     #A0A8C0;
-      --green:     #00C48C;
-      --red:       #FF4757;
+      --primary:        #FF6B35;
+      --primary-dk:     #E85A22;
+      --primary-lt:     #FFF0E8;
+      --bg:             #FFF8F0;
+      --surface:        #FFFFFF;
+      --text-primary:   #1A1A1A;
+      --text-secondary: #3D3D3D;
+      --text-muted:     #6B7280;
+      --success:        #16A34A;
+      --error:          #DC2626;
+      --warning:        #D97706;
+      --border:         #E5E7EB;
+      --shadow:         rgba(20,0,0,0.08);
+      --shadow-md:      rgba(20,0,0,0.13);
 
       --font-display: 'Baloo 2', cursive;
       --font-body:    'Inter', sans-serif;
 
-      --r-sm: 10px;
-      --r-md: 16px;
-      --r-lg: 24px;
+      --r-sm:  8px;
+      --r-md:  14px;
+      --r-lg:  20px;
+      --r-xl:  28px;
     }
 
     /* ─── RESET ───────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background: var(--navy);
-      color: var(--white);
+      background: var(--bg);
+      color: var(--text-primary);
       font-family: var(--font-body);
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      /* bottom padding so sticky CTA doesn't cover content */
-      padding-bottom: 80px;
+      overflow-x: hidden;
+      /* space for sticky bar on mobile */
+      padding-bottom: 76px;
     }
-    img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
     /* ─── HEADER ──────────────────────────────────────────── */
     header {
       background: var(--surface);
-      padding: 14px 20px;
-      text-align: center;
-      border-bottom: 2px solid var(--orange);
+      border-bottom: 1px solid var(--border);
+      padding: 13px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: sticky;
       top: 0;
       z-index: 100;
     }
     .logo {
       font-family: var(--font-display);
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.3px;
+      color: var(--text-primary);
+      letter-spacing: -0.4px;
     }
-    .logo span { color: var(--orange); }
+    .logo .logo-accent { color: var(--primary); }
+    .logo-badge {
+      display: inline-block;
+      background: var(--primary-lt);
+      color: var(--primary);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-left: 7px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
 
     /* ─── HERO ────────────────────────────────────────────── */
     .hero {
-      padding: 40px 20px 36px;
+      background: var(--surface);
+      padding: 32px 20px 36px;
       text-align: center;
-      background: var(--navy);
+      border-bottom: 1px solid var(--border);
     }
 
-    .hero-eyebrow {
-      display: inline-block;
-      background: var(--card);
-      color: var(--gold);
+    /* live open badge */
+    .live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #DCFCE7;
+      color: var(--success);
       font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 1.4px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
       text-transform: uppercase;
-      padding: 5px 14px;
+      padding: 5px 12px;
       border-radius: 999px;
       margin-bottom: 18px;
+    }
+    .live-dot {
+      width: 7px; height: 7px;
+      background: var(--success);
+      border-radius: 50%;
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.25; }
     }
 
     .hero h1 {
       font-family: var(--font-display);
-      font-size: 2.1rem;
+      font-size: 2rem;
       font-weight: 800;
       line-height: 1.15;
-      color: var(--white);
-      margin-bottom: 14px;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
     }
-    .hero h1 .accent { color: var(--orange); }
+    .hero h1 .h-accent { color: var(--primary); }
 
     .hero-sub {
-      font-size: 0.97rem;
-      color: var(--muted);
-      max-width: 360px;
-      margin: 0 auto 28px;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
       line-height: 1.65;
+      max-width: 340px;
+      margin: 0 auto 24px;
     }
-    .hero-sub strong { color: var(--white); }
+    .hero-sub strong { color: var(--text-primary); font-weight: 700; }
 
-    /* ─── PRICE STAMP ─────────────────────────────────────── */
-    .price-stamp {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--card);
-      border: 1.5px solid var(--green);
-      border-radius: var(--r-sm);
-      padding: 9px 16px;
-      margin-bottom: 30px;
-      font-size: 0.88rem;
-      color: var(--green);
+    /* hero food visual — emoji mosaic */
+    .food-mosaic {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .food-chip {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.82rem;
       font-weight: 600;
-    }
-    .price-stamp .dot {
-      width: 8px; height: 8px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: pulse 1.6s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.4; transform: scale(1.4); }
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    /* ─── PRIMARY CTA BUTTON ──────────────────────────────── */
+    /* ─── PRIMARY CTA ─────────────────────────────────────── */
     .btn-primary {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 9px;
       width: 100%;
       max-width: 340px;
-      margin: 0 auto;
-      background: var(--orange);
-      color: var(--white);
+      margin: 0 auto 12px;
+      background: var(--primary);
+      color: #fff;
       font-family: var(--font-display);
       font-size: 1.05rem;
       font-weight: 800;
@@ -148,170 +185,193 @@
       border-radius: var(--r-md);
       border: none;
       cursor: pointer;
-      letter-spacing: 0.3px;
-      transition: background 0.18s, transform 0.12s;
+      letter-spacing: 0.2px;
+      box-shadow: 0 4px 14px rgba(255,107,53,0.35);
+      transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
       -webkit-tap-highlight-color: transparent;
     }
     .btn-primary:active {
-      background: var(--orange-dk);
+      background: var(--primary-dk);
       transform: scale(0.97);
+      box-shadow: 0 2px 8px rgba(255,107,53,0.2);
     }
-    .btn-primary .play-icon {
-      width: 22px; height: 22px;
-      flex-shrink: 0;
-    }
+    .play-svg { width: 20px; height: 20px; flex-shrink: 0; }
 
-    .hero-note {
-      margin-top: 12px;
+    .hero-trust {
       font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    /* ─── FOOD ITEMS TICKER ───────────────────────────────── */
-    .ticker-wrap {
-      overflow: hidden;
-      background: var(--surface);
-      padding: 10px 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .ticker {
+      color: var(--text-muted);
       display: flex;
-      gap: 32px;
-      white-space: nowrap;
-      animation: ticker-scroll 18s linear infinite;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
-    @keyframes ticker-scroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .ticker span {
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
-    .ticker span .emoji { margin-right: 4px; }
+    .hero-trust span { display: flex; align-items: center; gap: 4px; }
 
-    /* ─── SECTION COMMONS ─────────────────────────────────── */
-    section {
+    /* ─── URGENCY BANNER ──────────────────────────────────── */
+    .urgency-bar {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 11px 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .urgency-bar strong { font-weight: 800; }
+
+    /* ─── SECTION BASE ────────────────────────────────────── */
+    .sec {
       padding: 36px 20px;
     }
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 600;
+    .sec-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
       letter-spacing: 1.8px;
       text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 8px;
+      color: var(--primary);
+      margin-bottom: 6px;
     }
-    .section-title {
+    .sec-title {
       font-family: var(--font-display);
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 800;
-      color: var(--white);
-      margin-bottom: 24px;
+      color: var(--text-primary);
       line-height: 1.25;
+      margin-bottom: 20px;
     }
 
-    /* ─── USP GRID ────────────────────────────────────────── */
-    .usp-section { background: var(--surface); }
-
+    /* ─── USP CARDS ───────────────────────────────────────── */
     .usp-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 10px;
     }
     .usp-card {
-      background: var(--card);
-      border-radius: var(--r-md);
-      padding: 18px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 18px 14px 16px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 7px;
     }
-    .usp-card .icon {
-      font-size: 1.6rem;
-      line-height: 1;
+    .usp-card.featured {
+      border-color: var(--primary);
+      background: var(--primary-lt);
     }
-    .usp-card .usp-title {
+    .usp-icon { font-size: 1.65rem; line-height: 1; }
+    .usp-title {
       font-family: var(--font-display);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--text-primary);
       line-height: 1.3;
     }
-    .usp-card .usp-desc {
-      font-size: 0.78rem;
-      color: var(--muted);
+    .usp-desc {
+      font-size: 0.77rem;
+      color: var(--text-muted);
       line-height: 1.5;
     }
-    .usp-card.highlight {
-      border: 1.5px solid var(--orange);
+
+    /* ─── SOCIAL PROOF TICKER ─────────────────────────────── */
+    .proof-strip {
+      background: var(--primary);
+      overflow: hidden;
+      padding: 11px 0;
+    }
+    .proof-scroll {
+      display: flex;
+      gap: 40px;
+      white-space: nowrap;
+      animation: scroll-x 20s linear infinite;
+    }
+    @keyframes scroll-x {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .proof-item {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .proof-item .sep { opacity: 0.45; margin: 0 8px; }
+
+    /* ─── STATS ROW ───────────────────────────────────────── */
+    .stats-row {
+      display: flex;
+      gap: 10px;
+    }
+    .stat-box {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px 10px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 500;
     }
 
     /* ─── HOW IT WORKS ────────────────────────────────────── */
-    .how-section { background: var(--navy); }
-
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    .steps { display: flex; flex-direction: column; gap: 0; }
     .step {
       display: flex;
       align-items: flex-start;
       gap: 16px;
       position: relative;
     }
-    /* connector line */
     .step:not(:last-child)::after {
       content: '';
       position: absolute;
       left: 19px;
-      top: 44px;
-      bottom: -10px;
+      top: 42px;
+      bottom: -8px;
       width: 2px;
-      background: var(--card);
+      background: var(--border);
     }
     .step-num {
-      width: 40px; height: 40px;
-      min-width: 40px;
-      background: var(--orange);
+      width: 40px; height: 40px; min-width: 40px;
+      background: var(--primary);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font-display);
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 800;
-      color: var(--white);
+      color: #fff;
       position: relative;
       z-index: 1;
     }
-    .step-body {
-      padding-bottom: 28px;
-    }
-    .step-title {
+    .step-body { padding-bottom: 28px; }
+    .step-h {
       font-family: var(--font-display);
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--text-primary);
       margin-bottom: 3px;
     }
-    .step-desc {
-      font-size: 0.83rem;
-      color: var(--muted);
-    }
+    .step-p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
 
-    /* ─── SOCIAL PROOF ────────────────────────────────────── */
-    .proof-section { background: var(--surface); }
-
-    .reviews {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+    /* ─── REVIEW CARDS ────────────────────────────────────── */
+    .reviews { display: flex; flex-direction: column; gap: 12px; }
     .review-card {
-      background: var(--card);
-      border-radius: var(--r-md);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
       padding: 16px;
     }
     .review-top {
@@ -321,71 +381,131 @@
       margin-bottom: 10px;
     }
     .avatar {
-      width: 36px; height: 36px;
+      width: 38px; height: 38px;
       border-radius: 50%;
-      background: var(--orange);
+      background: var(--primary);
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font-display);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 800;
-      color: var(--white);
+      color: #fff;
+      flex-shrink: 0;
     }
-    .reviewer-name {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--white);
-    }
-    .reviewer-tag {
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-    .stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 1px; }
-    .review-text {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.6;
-      font-style: italic;
-    }
-    .review-text strong { color: var(--white); font-style: normal; }
+    .reviewer-name { font-size: 0.88rem; font-weight: 700; color: var(--text-primary); }
+    .reviewer-tag  { font-size: 0.72rem; color: var(--text-muted); }
+    .stars { color: #F59E0B; font-size: 0.82rem; margin-left: auto; letter-spacing: 1px; }
+    .review-text { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
+    .review-text strong { color: var(--text-primary); font-weight: 700; }
 
-    /* ─── STATS BAR ───────────────────────────────────────── */
-    .stats-bar {
-      background: var(--card);
-      display: flex;
-      justify-content: space-around;
-      padding: 24px 16px;
-      border-radius: var(--r-md);
-      margin: 0 20px 36px;
+    /* ─── PRICE COMPARISON ────────────────────────────────── */
+    .compare-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
     }
-    .stat {
+    .compare-row {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-row.header-row {
+      background: var(--bg);
+      padding: 10px 16px;
+    }
+    .compare-row.header-row .col { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+    .col-food { flex: 1.2; font-size: 0.88rem; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 6px; }
+    .col-them  { flex: 1; text-align: center; font-size: 0.85rem; color: var(--error); font-weight: 600; }
+    .col-us    { flex: 1; text-align: center; font-size: 0.85rem; color: var(--success); font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 4px; }
+    .badge-save {
+      background: #DCFCE7;
+      color: var(--success);
+      font-size: 0.64rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* ─── MYSTERY GIFT TEASER ─────────────────────────────── */
+    .gift-box {
+      background: var(--surface);
+      border: 1.5px dashed var(--primary);
+      border-radius: var(--r-lg);
+      padding: 22px 20px;
       text-align: center;
     }
-    .stat-num {
+    .gift-box .gift-emoji { font-size: 2.4rem; margin-bottom: 10px; }
+    .gift-box .gift-title {
       font-family: var(--font-display);
-      font-size: 1.6rem;
+      font-size: 1.1rem;
       font-weight: 800;
-      color: var(--orange);
-      line-height: 1;
+      color: var(--text-primary);
+      margin-bottom: 6px;
     }
-    .stat-label {
-      font-size: 0.72rem;
-      color: var(--muted);
-      margin-top: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
+    .gift-box .gift-sub { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
 
     /* ─── FINAL CTA SECTION ───────────────────────────────── */
-    .cta-section {
-      background: var(--navy);
+    .final-cta {
+      background: var(--primary);
+      padding: 40px 20px;
       text-align: center;
-      padding: 36px 20px 40px;
     }
-    .cta-section .section-title { margin-bottom: 6px; }
-    .cta-section .sub {
-      color: var(--muted);
-      font-size: 0.88rem;
-      margin-bottom: 24px;
+    .final-cta .fc-title {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .final-cta .fc-sub {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 26px;
+      line-height: 1.6;
+    }
+    .btn-white {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto 10px;
+      background: #fff;
+      color: var(--primary);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 800;
+      padding: 16px 24px;
+      border-radius: var(--r-md);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+      transition: transform 0.1s, box-shadow 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-white:active { transform: scale(0.97); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .final-cta .fc-note { font-size: 0.76rem; color: rgba(255,255,255,0.65); }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--text-primary);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 22px 20px;
+      font-size: 0.75rem;
+    }
+    footer a { color: var(--primary); }
+    footer .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
     }
 
     /* ─── STICKY BOTTOM BAR ───────────────────────────────── */
@@ -393,76 +513,56 @@
       position: fixed;
       bottom: 0; left: 0; right: 0;
       background: var(--surface);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 10px 20px;
+      border-top: 1px solid var(--border);
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
       z-index: 200;
       display: flex;
       align-items: center;
       gap: 12px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
     }
-    .sticky-bar .sticky-text {
-      flex: 1;
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.3;
-    }
-    .sticky-bar .sticky-text strong {
-      display: block;
-      color: var(--white);
-      font-size: 0.88rem;
-    }
-    .sticky-bar .btn-sticky {
+    .sticky-left { flex: 1; min-width: 0; }
+    .sticky-main { font-size: 0.88rem; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .sticky-sub  { font-size: 0.72rem; color: var(--text-muted); }
+    .btn-sticky {
       flex-shrink: 0;
       display: flex;
       align-items: center;
-      gap: 7px;
-      background: var(--orange);
-      color: var(--white);
+      gap: 6px;
+      background: var(--primary);
+      color: #fff;
       font-family: var(--font-display);
       font-size: 0.88rem;
       font-weight: 800;
-      padding: 11px 18px;
+      padding: 12px 18px;
       border-radius: var(--r-sm);
       border: none;
       cursor: pointer;
       white-space: nowrap;
-      transition: background 0.15s, transform 0.1s;
+      box-shadow: 0 3px 10px rgba(255,107,53,0.3);
+      transition: background 0.12s, transform 0.1s;
       -webkit-tap-highlight-color: transparent;
     }
-    .sticky-bar .btn-sticky:active {
-      background: var(--orange-dk);
-      transform: scale(0.96);
-    }
-    .sticky-bar .btn-sticky svg { width: 16px; height: 16px; }
+    .btn-sticky:active { background: var(--primary-dk); transform: scale(0.96); }
+    .btn-sticky svg { width: 15px; height: 15px; }
 
-    /* ─── FOOTER ──────────────────────────────────────────── */
-    footer {
-      background: var(--surface);
-      text-align: center;
-      padding: 20px;
-      font-size: 0.75rem;
-      color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    footer a { color: var(--orange); }
-
-    /* ─── DESKTOP ─────────────────────────────────────────── */
+    /* ─── DESKTOP ADJUSTMENTS ─────────────────────────────── */
     @media (min-width: 480px) {
       body { padding-bottom: 0; }
       .sticky-bar { display: none; }
-      .hero h1 { font-size: 2.6rem; }
+      .hero h1 { font-size: 2.5rem; }
       .usp-grid { grid-template-columns: repeat(4, 1fr); }
     }
-
     @media (min-width: 768px) {
-      .hero { padding: 60px 20px 56px; }
-      .hero h1 { font-size: 3rem; }
+      .hero { padding: 60px 20px 60px; }
+      .hero h1 { font-size: 2.9rem; }
+      .sec { padding: 52px 32px; }
     }
 
     /* ─── REDUCED MOTION ──────────────────────────────────── */
     @media (prefers-reduced-motion: reduce) {
-      .ticker { animation: none; }
-      .dot    { animation: none; }
+      .proof-scroll { animation: none; }
+      .live-dot     { animation: none; }
     }
   </style>
 </head>
@@ -470,16 +570,22 @@
 
   <!-- ════ HEADER ════ -->
   <header>
-    <div class="logo">🥟 Street<span>Eats</span></div>
+    <div class="logo">
+      🥟 Str<span class="logo-accent">eat</span> Eats
+      <span class="logo-badge">Haldwani</span>
+    </div>
   </header>
 
   <!-- ════ HERO ════ -->
   <section class="hero">
-    <div class="hero-eyebrow">🏙️ Sirf Haldwani Ke Liye</div>
+    <div class="live-pill">
+      <span class="live-dot"></span>
+      App Live — Download Now
+    </div>
 
     <h1>
       Haldwani Ka<br>
-      <span class="accent">Apna Street Food App</span>
+      <span class="h-accent">Apna Street Food App</span>
     </h1>
 
     <p class="hero-sub">
@@ -487,130 +593,174 @@
       <strong>WAHI STREET PRICE</strong> pe ghar pe delivery.
     </p>
 
-    <div class="price-stamp">
-      <span class="dot"></span>
-      Ab Available on Google Play
+    <div class="food-mosaic" aria-hidden="true">
+      <div class="food-chip">🥟 Momos</div>
+      <div class="food-chip">🌯 Rolls</div>
+      <div class="food-chip">🍔 Burger</div>
+      <div class="food-chip">🍝 Chowmein</div>
+      <div class="food-chip">🧋 Shakes</div>
     </div>
 
     <a href="https://play.google.com/store/apps/details?id=com.streeteats.hld"
        target="_blank" rel="noopener"
        class="btn-primary"
-       onclick="handleCTAClick('hero_download')">
-      <svg class="play-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+       onclick="trackCTA('hero_download')">
+      <svg class="play-svg" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M3 20.5v-17c0-.83 1-.92 1.5-.5l15 8.5-15 8.5c-.5.42-1.5.33-1.5-.5z"/>
       </svg>
-      Download App Now
+      Download App — Free
     </a>
 
-    <p class="hero-note">Free Download · Android · Haldwani Only</p>
+    <div class="hero-trust">
+      <span>✅ Free Download</span>
+      <span>📦 COD Available</span>
+      <span>🚀 30 Min Delivery</span>
+    </div>
   </section>
 
-  <!-- ════ FOOD TICKER ════ -->
-  <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker">
-      <span><span class="emoji">🥟</span>Momos</span>
-      <span><span class="emoji">🌯</span>Rolls</span>
-      <span><span class="emoji">🍔</span>Burger</span>
-      <span><span class="emoji">🍝</span>Chowmein</span>
-      <span><span class="emoji">🍕</span>Pizza</span>
-      <span><span class="emoji">🥗</span>Chaat</span>
-      <span><span class="emoji">🍜</span>Maggi</span>
-      <span><span class="emoji">🥪</span>Sandwich</span>
-      <span><span class="emoji">🧋</span>Shakes</span>
-      <span><span class="emoji">🌮</span>Samosa</span>
-      <!-- duplicate for seamless loop -->
-      <span><span class="emoji">🥟</span>Momos</span>
-      <span><span class="emoji">🌯</span>Rolls</span>
-      <span><span class="emoji">🍔</span>Burger</span>
-      <span><span class="emoji">🍝</span>Chowmein</span>
-      <span><span class="emoji">🍕</span>Pizza</span>
-      <span><span class="emoji">🥗</span>Chaat</span>
-      <span><span class="emoji">🍜</span>Maggi</span>
-      <span><span class="emoji">🥪</span>Sandwich</span>
-      <span><span class="emoji">🧋</span>Shakes</span>
-      <span><span class="emoji">🌮</span>Samosa</span>
+  <!-- ════ URGENCY BANNER ════ -->
+  <div class="urgency-bar">
+    ⚡ <strong>5 PM – 9 PM</strong> daily open · Order karo aur <strong>Mystery Gift</strong> pao! 🎁
+  </div>
+
+  <!-- ════ SOCIAL PROOF TICKER ════ -->
+  <div class="proof-strip" aria-hidden="true">
+    <div class="proof-scroll">
+      <span class="proof-item">⭐ Rahul — "Same price, 22 min delivery!"</span>
+      <span class="proof-item">⭐ Priya — "Mystery gift aaya 🤩"</span>
+      <span class="proof-item">⭐ Arjun — "Bhai COD hai, ekdum trust!"</span>
+      <span class="proof-item">⭐ Sneha — "Zomato se sasta, taste same!"</span>
+      <span class="proof-item">⭐ Rahul — "Same price, 22 min delivery!"</span>
+      <span class="proof-item">⭐ Priya — "Mystery gift aaya 🤩"</span>
+      <span class="proof-item">⭐ Arjun — "Bhai COD hai, ekdum trust!"</span>
+      <span class="proof-item">⭐ Sneha — "Zomato se sasta, taste same!"</span>
     </div>
   </div>
 
-  <!-- ════ USP GRID ════ -->
-  <section class="usp-section">
-    <p class="section-label">Kyun Street Eats?</p>
-    <h2 class="section-title">Koi Chakkar Nahi 🙅</h2>
+  <!-- ════ USP ════ -->
+  <section class="sec" style="background: var(--bg);">
+    <p class="sec-eyebrow">Kyun Streat Eats?</p>
+    <h2 class="sec-title">Koi Chakkar Nahi 🙅</h2>
 
     <div class="usp-grid">
-      <div class="usp-card highlight">
-        <div class="icon">💸</div>
-        <div class="usp-title">Same Street Prices</div>
-        <div class="usp-desc">Zero markup. Jo stall pe milta hai wahi rate.</div>
+      <div class="usp-card featured">
+        <div class="usp-icon">💸</div>
+        <div class="usp-title">Same Street Price</div>
+        <div class="usp-desc">Zero markup. Jo stall pe milta hai, wahi rate.</div>
       </div>
       <div class="usp-card">
-        <div class="icon">🛵</div>
+        <div class="usp-icon">🛵</div>
         <div class="usp-title">Free Delivery + COD</div>
         <div class="usp-desc">Cash on delivery. Koi card nahi chahiye.</div>
       </div>
       <div class="usp-card">
-        <div class="icon">✅</div>
+        <div class="usp-icon">✅</div>
         <div class="usp-title">Min. Order ₹149</div>
-        <div class="usp-desc">Chhoti order bhi hoti hai. Koi pressure nahi.</div>
+        <div class="usp-desc">Chhoti order bhi hoti hai, koi pressure nahi.</div>
       </div>
       <div class="usp-card">
-        <div class="icon">🎁</div>
+        <div class="usp-icon">🎁</div>
         <div class="usp-title">Mystery Gift</div>
-        <div class="usp-desc">Har order ke saath ek surprise gift pakka.</div>
+        <div class="usp-desc">Har order ke saath ek surprise gift — pakka!</div>
       </div>
     </div>
   </section>
 
   <!-- ════ STATS ════ -->
-  <div class="stats-bar">
-    <div class="stat">
-      <div class="stat-num">30<span style="font-size:1rem">min</span></div>
-      <div class="stat-label">Avg Delivery</div>
+  <section class="sec" style="background: var(--surface); padding-top: 0; padding-bottom: 36px;">
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-num">~30<span style="font-size:1rem">m</span></div>
+        <div class="stat-lbl">Avg Delivery</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">₹0</div>
+        <div class="stat-lbl">Delivery Fee</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">5–9</div>
+        <div class="stat-lbl">Open Daily</div>
+      </div>
     </div>
-    <div class="stat" style="border-left:1px solid rgba(255,255,255,0.08); border-right:1px solid rgba(255,255,255,0.08); padding: 0 16px;">
-      <div class="stat-num">5–9<span style="font-size:1rem">pm</span></div>
-      <div class="stat-label">Daily Open</div>
+  </section>
+
+  <!-- ════ PRICE COMPARISON ════ -->
+  <section class="sec" style="background: var(--bg);">
+    <p class="sec-eyebrow">Price Check</p>
+    <h2 class="sec-title">Swiggy se Kitna Sasta? 🤑</h2>
+
+    <div class="compare-box">
+      <div class="compare-row header-row">
+        <div class="col col-food">Item</div>
+        <div class="col col-them">Swiggy/Zomato</div>
+        <div class="col col-us">Streat Eats</div>
+      </div>
+      <div class="compare-row">
+        <div class="col-food">🥟 Momos (8 pcs)</div>
+        <div class="col-them">₹120</div>
+        <div class="col-us">₹60 <span class="badge-save">50% off</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="col-food">🌯 Egg Roll</div>
+        <div class="col-them">₹110</div>
+        <div class="col-us">₹60 <span class="badge-save">45% off</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="col-food">🍔 Veg Burger</div>
+        <div class="col-them">₹140</div>
+        <div class="col-us">₹70 <span class="badge-save">50% off</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="col-food">🍝 Chowmein</div>
+        <div class="col-them">₹130</div>
+        <div class="col-us">₹65 <span class="badge-save">50% off</span></div>
+      </div>
     </div>
-    <div class="stat">
-      <div class="stat-num">₹0</div>
-      <div class="stat-label">Delivery Fee</div>
-    </div>
-  </div>
+  </section>
 
   <!-- ════ HOW IT WORKS ════ -->
-  <section class="how-section">
-    <p class="section-label">3 Simple Steps</p>
-    <h2 class="section-title">Order Karo, Aaram Karo 🛋️</h2>
+  <section class="sec" style="background: var(--surface);">
+    <p class="sec-eyebrow">3 Simple Steps</p>
+    <h2 class="sec-title">Order Karo, Aaram Karo 🛋️</h2>
 
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-body">
-          <div class="step-title">App Download Karo</div>
-          <div class="step-desc">Google Play se free mein install karo. 30 second ka kaam.</div>
+          <div class="step-h">App Download Karo</div>
+          <div class="step-p">Google Play se free install karo. 30 second ka kaam — bas apna number daalo.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-body">
-          <div class="step-title">Apna Stall Chuno</div>
-          <div class="step-desc">Nearby vendors dekho, menu check karo, apni pasandida cheez add karo cart mein.</div>
+          <div class="step-h">Apna Stall Chuno</div>
+          <div class="step-p">Nearby vendors dekho, menu check karo, cart mein add karo.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-body">
-          <div class="step-title">Ghar Baitho, Food Aayega</div>
-          <div class="step-desc">COD select karo, order karo. Rider 30 min mein deliver karega. Cash on delivery.</div>
+          <div class="step-h">Ghar Baitho — Food Aayega</div>
+          <div class="step-p">COD select karo, confirm karo. Rider 30 min mein ghar pe. Cash on delivery — koi online payment nahi chahiye.</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ════ MYSTERY GIFT TEASER ════ -->
+  <section class="sec" style="background: var(--bg);">
+    <div class="gift-box">
+      <div class="gift-emoji">🎁</div>
+      <div class="gift-title">Har Order Pe Mystery Gift!</div>
+      <p class="gift-sub">Pehle order se lekar 100th order tak — har baar kuch na kuch pakka milega. <strong>Kya hai? Order karke dekho 😉</strong></p>
+    </div>
+  </section>
+
   <!-- ════ REVIEWS ════ -->
-  <section class="proof-section">
-    <p class="section-label">Log Kya Bol Rahe Hain</p>
-    <h2 class="section-title">Real Reviews ⭐</h2>
+  <section class="sec" style="background: var(--surface);">
+    <p class="sec-eyebrow">Haldwani Bol Rahi Hai</p>
+    <h2 class="sec-title">Real Reviews ⭐</h2>
 
     <div class="reviews">
       <div class="review-card">
@@ -618,77 +768,78 @@
           <div class="avatar">R</div>
           <div>
             <div class="reviewer-name">Rahul S.</div>
-            <div class="reviewer-tag">Student, Haldwani</div>
+            <div class="reviewer-tag">Student · Haldwani</div>
           </div>
-          <div class="stars" style="margin-left:auto">★★★★★</div>
+          <div class="stars">★★★★★</div>
         </div>
-        <p class="review-text">"Yaar sach mein <strong>same price</strong> milte hain — Swiggy wali extra charge nahi. Momos garam aaye, 22 minute mein. Solid app hai."</p>
+        <p class="review-text">"Yaar sach mein <strong>same price milte hain</strong> — Swiggy wali extra charge bilkul nahi. Momos garam aaye, 22 minute mein. Solid app hai bhai."</p>
       </div>
 
       <div class="review-card">
         <div class="review-top">
-          <div class="avatar" style="background:var(--card); border: 1.5px solid var(--orange);">P</div>
+          <div class="avatar" style="background:#D97706;">P</div>
           <div>
             <div class="reviewer-name">Priya V.</div>
             <div class="reviewer-tag">Working Professional</div>
           </div>
-          <div class="stars" style="margin-left:auto">★★★★★</div>
+          <div class="stars">★★★★★</div>
         </div>
-        <p class="review-text">"COD option ne trust diya. First order mein <strong>mystery gift</strong> bhi aaya — ek extra momo box 🤩. Ab daily order karti hoon 5 baje."</p>
+        <p class="review-text">"COD option ne <strong>trust diya</strong>. First order mein mystery gift bhi aaya — ek extra momo box 🤩 Ab daily order karti hoon 5 baje."</p>
       </div>
 
       <div class="review-card">
         <div class="review-top">
-          <div class="avatar" style="background: #0F3460; border: 1.5px solid var(--gold);">A</div>
+          <div class="avatar" style="background:#16A34A;">A</div>
           <div>
             <div class="reviewer-name">Arjun K.</div>
-            <div class="reviewer-tag">College Hostel, Kathgodam</div>
+            <div class="reviewer-tag">College Hostel · Kathgodam</div>
           </div>
-          <div class="stars" style="margin-left:auto">★★★★★</div>
+          <div class="stars">★★★★★</div>
         </div>
-        <p class="review-text">"Hostel mein rehte hain, bahar jaana nahi hota evenings mein. Street Eats ne <strong>zindagi badal di</strong> bhai. IPL + Momos = 🔥"</p>
+        <p class="review-text">"Hostel mein bahar jaana nahi hota evenings mein. Streat Eats ne <strong>zindagi badal di</strong>. IPL + Momos = 🔥 Seedha phone pe mangao."</p>
       </div>
     </div>
   </section>
 
   <!-- ════ FINAL CTA ════ -->
-  <section class="cta-section">
-    <p class="section-label">Abhi Download Karo</p>
-    <h2 class="section-title">Kal Se Nahi,<br>Aaj Se Shuru Karo 🚀</h2>
-    <p class="sub">5 PM se 9 PM — Roz fresh delivery, Haldwani mein.</p>
+  <section class="final-cta">
+    <h2 class="fc-title">Kal Se Nahi,<br>Aaj Se Shuru Karo! 🚀</h2>
+    <p class="fc-sub">5 PM se 9 PM — Roz fresh delivery.<br>Free download, COD, min. order ₹149 only.</p>
 
     <a href="https://play.google.com/store/apps/details?id=com.streeteats.hld"
        target="_blank" rel="noopener"
-       class="btn-primary"
-       style="margin-bottom: 16px;"
-       onclick="handleCTAClick('final_download')">
-      <svg class="play-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+       class="btn-white"
+       onclick="trackCTA('final_download')">
+      <svg class="play-svg" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M3 20.5v-17c0-.83 1-.92 1.5-.5l15 8.5-15 8.5c-.5.42-1.5.33-1.5-.5z"/>
       </svg>
-      Get it on Google Play
+      Get it on Google Play — Free
     </a>
-    <p class="hero-note">Free · Android Only · Haldwani Exclusive</p>
+    <p class="fc-note">Android only · Haldwani exclusive</p>
   </section>
 
   <!-- ════ FOOTER ════ -->
   <footer>
-    <p>© 2025 Street Eats · Haldwani, Uttarakhand</p>
-    <p style="margin-top: 6px;">
-      Instagram: <a href="https://instagram.com/streeteats.hld" target="_blank" rel="noopener">@streeteats.hld</a>
+    <div class="footer-logo">🥟 Streat Eats</div>
+    <p>© 2025 Streat Eats · Haldwani, Uttarakhand</p>
+    <p style="margin-top: 5px;">
+      <a href="https://instagram.com/streateats.hld" target="_blank" rel="noopener">@streateats.hld</a>
+      &nbsp;·&nbsp;
+      <a href="https://play.google.com/store/apps/details?id=com.streeteats.hld" target="_blank" rel="noopener">Google Play</a>
     </p>
   </footer>
 
-  <!-- ════ STICKY BOTTOM BAR (mobile only) ════ -->
-  <div class="sticky-bar">
-    <div class="sticky-text">
-      <strong>Street Eats — Free Download</strong>
-      COD · Same Street Prices · Haldwani
+  <!-- ════ STICKY BOTTOM BAR — MOBILE ONLY ════ -->
+  <div class="sticky-bar" id="stickyBar">
+    <div class="sticky-left">
+      <div class="sticky-main">🥟 Streat Eats — Free Download</div>
+      <div class="sticky-sub">COD · Same Prices · Haldwani Only</div>
     </div>
     <a href="https://play.google.com/store/apps/details?id=com.streeteats.hld"
        target="_blank" rel="noopener"
        class="btn-sticky"
-       onclick="handleCTAClick('sticky_download')">
-      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+       onclick="trackCTA('sticky_download')">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M3 20.5v-17c0-.83 1-.92 1.5-.5l15 8.5-15 8.5c-.5.42-1.5.33-1.5-.5z"/>
       </svg>
       Download
@@ -696,30 +847,35 @@
   </div>
 
   <script>
-    /**
-     * CTA click handler — replace with Meta Pixel / GTM event later
-     * e.g: fbq('track', 'Lead', { content_name: source });
-     */
-    function handleCTAClick(source) {
-      console.log('[Street Eats] CTA clicked:', source);
-      // TODO: replace below with Meta Pixel code
-      // fbq('track', 'Lead', { content_name: source });
+    /* ─── CTA TRACKING ──────────────────────────────────────
+       Replace contents of trackCTA() with your Meta Pixel
+       or Google Analytics event when ready.
+
+       Example Meta Pixel code:
+         fbq('track', 'Lead', { content_name: source });
+
+       Example GA4:
+         gtag('event', 'cta_click', { cta_location: source });
+    ──────────────────────────────────────────────────────── */
+    function trackCTA(source) {
+      console.log('[Streat Eats] CTA clicked →', source);
+      // TODO: fbq('track', 'Lead', { content_name: source });
     }
 
-    // Hide sticky bar once user scrolls to bottom (optional UX polish)
-    const stickyBar = document.querySelector('.sticky-bar');
-    const finalCTA  = document.querySelector('.cta-section');
+    /* ─── STICKY BAR: hide when final CTA is visible ─────── */
+    (function () {
+      const bar     = document.getElementById('stickyBar');
+      const finalEl = document.querySelector('.final-cta');
+      if (!bar || !finalEl || typeof IntersectionObserver === 'undefined') return;
 
-    if (stickyBar && finalCTA && 'IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          stickyBar.style.opacity = entry.isIntersecting ? '0' : '1';
-          stickyBar.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
-        },
-        { threshold: 0.5 }
-      );
-      observer.observe(finalCTA);
-    }
+      const obs = new IntersectionObserver(function (entries) {
+        bar.style.opacity       = entries[0].isIntersecting ? '0'    : '1';
+        bar.style.pointerEvents = entries[0].isIntersecting ? 'none' : 'auto';
+        bar.style.transform     = entries[0].isIntersecting ? 'translateY(8px)' : 'translateY(0)';
+      }, { threshold: 0.4 });
+
+      obs.observe(finalEl);
+    })();
   </script>
 </body>
 </html>
