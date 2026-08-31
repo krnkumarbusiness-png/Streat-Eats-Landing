@@ -888,10 +888,10 @@ articles.forEach(art => {
     "headline": "${art.title.replace(/"/g, '\\"')}",
     "description": "${art.desc.replace(/"/g, '\\"')}",
     "image": [
-      "${art.coverImg}",
-      "founder.webp",
-      "co%20founder.jpeg",
-      "streat_eats_delivery.jpg"
+      "https://app.streateats.in/${art.coverImg}",
+      "https://app.streateats.in/founder.webp",
+      "https://app.streateats.in/co%20founder.jpeg",
+      "https://app.streateats.in/streat_eats_delivery.jpg"
     ],
     "datePublished": "${art.dateIso}T10:00:00+05:30",
     "dateModified": "2026-08-31T15:00:00+05:30",
@@ -903,9 +903,10 @@ articles.forEach(art => {
     "publisher": {
       "@type": "Organization",
       "name": "Streat Eats",
+      "url": "https://app.streateats.in",
       "logo": {
         "@type": "ImageObject",
-        "url": "icon.png"
+        "url": "https://app.streateats.in/icon.png"
       }
     }
   }
@@ -934,16 +935,16 @@ ${getHeader('blogs')}
   </div>
 
   <!-- Main Article Container -->
-  <article class="container" itemscope itemtype="https://schema.org/BlogPosting">
+  <article class="container">
     <header class="article-header">
       <span class="article-tag ${art.tagClass}">${art.tag}</span>
-      <h1 class="article-title" itemprop="headline">${art.title}</h1>
+      <h1 class="article-title">${art.title}</h1>
 
       <div class="article-meta-row">
         <div class="author-badge">
           <img src="${art.coverImg.includes('founder') ? art.coverImg : (isHindi ? 'founder.webp' : 'icon.png')}" alt="${art.authorName}" class="author-avatar">
           <div>
-            <div class="author-name" itemprop="author">${art.authorName}</div>
+            <div class="author-name">${art.authorName}</div>
             <div style="font-size: 0.8rem; color: var(--muted);">Haldwani, Uttarakhand</div>
           </div>
         </div>
@@ -953,8 +954,8 @@ ${getHeader('blogs')}
       </div>
 
       <!-- Featured Image -->
-      <figure class="featured-cover" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-        <img src="${art.coverImg}" alt="${art.title}" itemprop="contentUrl">
+      <figure class="featured-cover">
+        <img src="${art.coverImg}" alt="${art.title}">
         <figcaption class="featured-caption">
           ${art.coverCaption}
         </figcaption>
@@ -963,7 +964,7 @@ ${getHeader('blogs')}
 
     <div class="article-grid">
       <!-- Main Content Column -->
-      <div class="article-content" itemprop="articleBody">
+      <div class="article-content">
         ${art.contentHtml}
 
         <!-- Author Bio Box -->
