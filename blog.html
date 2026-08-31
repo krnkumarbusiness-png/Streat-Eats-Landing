@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streat Eats Blog — Stories, Founders & Street Food of Haldwani (21 Articles)</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- Primary SEO Meta Tags -->
+  <meta name="title" content="Streat Eats Blog — Stories, Founders & Street Food of Haldwani (21 Articles)">
+  <meta name="description" content="Explore 21 articles and guides on Streat Eats, its founders Karan Kumar and Lokesh Paneru, and the top street food stalls across Haldwani, Uttarakhand. Available in English & Hindi.">
+  <meta name="keywords" content="Streat Eats blog, Karan Kumar, Karan Kumar Haldwani, Lokesh Paneru, Lokesh Paneru Haldwani, Streat Eats founders, street food delivery Haldwani, best food delivery app Haldwani, Uttarakhand food startup">
+  <meta name="author" content="Streat Eats Editorial Team">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://app.streateats.in/blogs.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Streat Eats Blog">
+  <meta property="og:title" content="Streat Eats Blog — 21 Street Food Stories & Founder Insights from Haldwani">
+  <meta property="og:description" content="Read 21 curated stories behind Streat Eats, founders Karan Kumar & Lokesh Paneru, top momos, burgers, and delivery secrets in Haldwani.">
+  <meta property="og:image" content="founder.webp">
+
+  <!-- Schema.org Blog Graph -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Streat Eats Blog",
+    "url": "https://app.streateats.in/blogs.html",
+    "description": "Stories, food guides, and founder journeys from Streat Eats in Haldwani, Uttarakhand.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Streat Eats",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "icon.png"
+      }
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="blog.css">
+
+  <style>
+    .blog-hub-hero {
+      padding: 56px 0 32px;
+      text-align: center;
+    }
+    .hub-label {
+      font-family: var(--fh);
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--pri);
+      margin-bottom: 12px;
+    }
+    .hub-title {
+      font-family: var(--fh);
+      font-weight: 800;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .hub-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .filter-btn {
+      font-family: var(--fh);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 9px 20px;
+      border-radius: var(--r-pill);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text2);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--pri);
+      color: #FFF;
+      border-color: var(--pri);
+      box-shadow: var(--shadow-sm);
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 64px;
+    }
+    .blog-card {
+      background: var(--surface);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.35s var(--ease);
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--pri);
+    }
+    .blog-card-img-wrap {
+      width: 100%;
+      height: 195px;
+      overflow: hidden;
+      position: relative;
+      background: #F3F4F6;
+    }
+    .blog-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .blog-card:hover .blog-card-img-wrap img {
+      transform: scale(1.06);
+    }
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: var(--fh);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--pri-dark);
+      padding: 4px 10px;
+      border-radius: var(--r-pill);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .card-badge.badge-hindi {
+      color: #166534;
+      background: #DCFCE7;
+    }
+    .blog-card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .blog-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .blog-card-title {
+      font-family: var(--fh);
+      font-weight: 700;
+      font-size: 1.1rem;
+      line-height: 1.35;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .blog-card-excerpt {
+      font-size: 0.88rem;
+      color: var(--text2);
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+    .card-read-link {
+      font-family: var(--fh);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--pri);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+    }
+    .cta-banner {
+      background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+      border-radius: var(--r-xl);
+      padding: 48px 24px;
+      color: #FFF;
+      text-align: center;
+      margin-bottom: 72px;
+      box-shadow: var(--shadow-lg);
+    }
+    .cta-banner h2 {
+      font-family: var(--fh);
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .cta-banner p {
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto 24px;
+      color: #FFF0E8;
+    }
+    @media(max-width: 960px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media(max-width: 600px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand"><span class="brand-dot"></span>Streat Eats</a>
+        <div class="nav-acts desktop">
+          <a href="index.html#story" class="btn btn-out" style="border:none;background:transparent;color:var(--text2);font-weight:700;padding:10px 16px;">Our Story</a>
+          <a href="blogs.html" class="btn btn-out" style="border:none;background:transparent;color:var(--pri);font-weight:700;padding:10px 16px;">Blog</a>
+          <a href="https://play.google.com/store/apps/details?id=com.streeteats.hld&pcampaignid=web_share" class="btn btn-out" target="_blank" rel="noopener">Download App</a>
+          <a href="https://app.streateats.in" class="btn btn-pri" target="_blank" rel="noopener">Open Web App</a>
+        </div>
+        <button class="mob-btn" id="mobBtn" aria-label="Toggle menu" aria-expanded="false">
+          <div class="hamburger"><span></span><span></span><span></span></div>
+        </button>
+      </div>
+      <div class="mob-menu" id="mobMenu">
+        <a href="index.html#story" class="btn btn-out" style="border-color:var(--border);">Our Story &amp; Founders</a>
+        <a href="blogs.html" class="btn btn-out" style="border-color:var(--border);">Blog &amp; Articles</a>
+        <a href="https://play.google.com/store/apps/details?id=com.streeteats.hld&pcampaignid=web_share" class="btn btn-out" target="_blank" rel="noopener">Download App</a>
+        <a href="https://app.streateats.in" class="btn btn-pri" target="_blank" rel="noopener">Open Web App</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="blog-hub-hero">
+    <div class="container">
+      <div class="hub-label">Insights &amp; Food Stories</div>
+      <h1 class="hub-title">The Streat Eats Blog Hub</h1>
+      <p class="hub-sub">
+        Explore 21 in-depth articles on Haldwani's street food culture, meet founders Karan Kumar &amp; Lokesh Paneru, and master the art of 30-minute zero-markup food delivery.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" onclick="filterPosts('all', this)">All Articles (21)</button>
+        <button class="filter-btn" onclick="filterPosts('founders', this)">Founders &amp; Story</button>
+        <button class="filter-btn" onclick="filterPosts('food', this)">Food Guides</button>
+        <button class="filter-btn" onclick="filterPosts('hindi', this)">हिन्दी ब्लॉग्स (Hindi)</button>
+        <button class="filter-btn" onclick="filterPosts('tech', this)">Delivery &amp; Tech</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="blog-grid" id="blogGrid">
+      <!-- Who Is Karan Kumar? The 21-Year-Old Founder Behind Streat Eats Haldwani -->
+      <a href="blog-karan-kumar.html" class="blog-card" data-category="founders tech">
+        <div class="blog-card-img-wrap">
+          <img src="founder.webp" alt="Who Is Karan Kumar? The 21-Year-Old Founder Behind Streat Eats Haldwani | Tech Entrepreneur Profile" loading="lazy">
+          <span class="card-badge ">Founder Profile</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 August 28, 2026</span> • <span>⏱️ 8 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Who Is Karan Kumar? The 21-Year-Old Founder Behind Streat Eats Haldwani</h3>
+          <p class="blog-card-excerpt">At just 21, Karan Kumar built a food tech startup reshaping how Haldwani orders street food with zero markup. Read his full journey from late-night coding to a live app.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Lokesh Paneru: The Ground Force Behind Streat Eats' 30-Minute Delivery Promise in Haldwani -->
+      <a href="blog-lokesh-paneru.html" class="blog-card" data-category="founders tech">
+        <div class="blog-card-img-wrap">
+          <img src="co founder.jpeg" alt="Lokesh Paneru: The Ground Force Behind Streat Eats' 30-Minute Delivery Promise in Haldwani" loading="lazy">
+          <span class="card-badge ">Co-Founder Profile</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 August 25, 2026</span> • <span>⏱️ 8 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Lokesh Paneru: The Ground Force Behind Streat Eats' 30-Minute Delivery Promise in Haldwani</h3>
+          <p class="blog-card-excerpt">Meet the 20-year-old operations mastermind managing vendor partnerships, rider logistics, and 30-minute delivery execution across Haldwani.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- How Streat Eats Is Changing Street Food Delivery in Haldwani, Uttarakhand -->
+      <a href="blog-how-streat-eats-works.html" class="blog-card" data-category="tech food">
+        <div class="blog-card-img-wrap">
+          <img src="streat_eats_delivery.jpg" alt="How Streat Eats Is Changing Street Food Delivery in Haldwani, Uttarakhand | Zero Markup Revolution" loading="lazy">
+          <span class="card-badge ">Hyperlocal Tech</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 August 20, 2026</span> • <span>⏱️ 9 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">How Streat Eats Is Changing Street Food Delivery in Haldwani, Uttarakhand</h3>
+          <p class="blog-card-excerpt">Zero price markup, 30-minute delivery, genuine stall prices, and 15+ verified street vendors. Discover the hyperlocal economic revolution in Haldwani.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Streat Eats क्या है? हल्द्वानी की अपनी Street Food Delivery App -->
+      <a href="blog-streat-eats-kya-hai-hindi.html" class="blog-card" data-category="hindi tech">
+        <div class="blog-card-img-wrap">
+          <img src="haldwani_street_food.jpg" alt="Streat Eats क्या है? हल्द्वानी की अपनी Street Food Delivery App | करण कुमार और लोकेश पनेरू की पहल" loading="lazy">
+          <span class="card-badge badge-hindi">हिन्दी लेख • फूड टेक</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 18 अगस्त, 2026</span> • <span>⏱️ 8 मिनट पढ़ाई</span>
+          </div>
+          <h3 class="blog-card-title">Streat Eats क्या है? हल्द्वानी की अपनी Street Food Delivery App</h3>
+          <p class="blog-card-excerpt">अगर आप हल्द्वानी में रहते हैं और घर बैठे असली स्टॉल की कीमत पर गरमा-गरम मोमोज, बर्गर या चाट मंगाना चाहते हैं, तो जानिए Streat Eats कैसे काम करता है।</p>
+          <div class="card-read-link">पूरा लेख पढ़ें &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Top 10 Street Foods You Must Try in Haldwani (2026 Ultimate Foodie Guide & Delivery) -->
+      <a href="blog-top-street-foods-haldwani.html" class="blog-card" data-category="food">
+        <div class="blog-card-img-wrap">
+          <img src="haldwani_street_food.jpg" alt="Top 10 Street Foods You Must Try in Haldwani (2026 Ultimate Foodie Guide & Delivery)" loading="lazy">
+          <span class="card-badge ">Foodie Guide</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 August 15, 2026</span> • <span>⏱️ 10 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Top 10 Street Foods You Must Try in Haldwani (2026 Ultimate Foodie Guide & Delivery)</h3>
+          <p class="blog-card-excerpt">From iconic Nagar Palika momos and Bhotia Parao tikkis to spicy wok chowmein — the definitive foodie guide to Haldwani's street delicacies.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- कैसे Karan Kumar और Lokesh Paneru ने बनाई Haldwani की पहली Street Food Delivery App -->
+      <a href="blog-karan-lokesh-story-hindi.html" class="blog-card" data-category="hindi founders">
+        <div class="blog-card-img-wrap">
+          <img src="founder.webp" alt="कैसे Karan Kumar और Lokesh Paneru ने बनाई Haldwani की पहली Street Food Delivery App | प्रेरक कहानी" loading="lazy">
+          <span class="card-badge badge-hindi">प्रेरणादायक कहानी</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 12 अगस्त, 2026</span> • <span>⏱️ 9 मिनट पढ़ाई</span>
+          </div>
+          <h3 class="blog-card-title">कैसे Karan Kumar और Lokesh Paneru ने बनाई Haldwani की पहली Street Food Delivery App</h3>
+          <p class="blog-card-excerpt">दो दोस्त, एक शहर और एक बड़ा सपना — पढ़िए 21 और 20 साल के युवाओं की अनकही कहानी जिन्होंने अपने शहर के वेंडर्स के लिए बनाया Streat Eats।</p>
+          <div class="card-read-link">पूरा लेख पढ़ें &rarr;</div>
+        </div>
+      </a>
+
+      <!-- The Ultimate Guide to the Best Momos in Haldwani: Steamed, Fried, Tandoori & Kurkure (2026) -->
+      <a href="blog-best-momos-in-haldwani.html" class="blog-card" data-category="food">
+        <div class="blog-card-img-wrap">
+          <img src="steamed_momos_haldwani.jpg" alt="The Ultimate Guide to the Best Momos in Haldwani: Steamed, Fried, Tandoori & Kurkure (2026)" loading="lazy">
+          <span class="card-badge ">Foodie Guide</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 August 10, 2026</span> • <span>⏱️ 9 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">The Ultimate Guide to the Best Momos in Haldwani: Steamed, Fried, Tandoori & Kurkure (2026)</h3>
+          <p class="blog-card-excerpt">Steamed, fried, or kurkure — here is your ultimate guide to the tastiest, juiciest momos across Haldwani and how to get them delivered hot.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Bhotia Parao Food Walk: Exploring Haldwani's Legendary Evening Street Food Hub -->
+      <a href="blog-bhotia-parao-street-food.html" class="blog-card" data-category="food">
+        <div class="blog-card-img-wrap">
+          <img src="bhotia_parao_food.jpg" alt="Bhotia Parao Food Walk: Exploring Haldwani's Legendary Evening Street Food Hub" loading="lazy">
+          <span class="card-badge ">Local Food Walk</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 August 08, 2026</span> • <span>⏱️ 8 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Bhotia Parao Food Walk: Exploring Haldwani's Legendary Evening Street Food Hub</h3>
+          <p class="blog-card-excerpt">Step into the beating heart of Haldwani's evening food culture. Discover the legendary stalls of Bhotia Parao and how to order from them online.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Nagar Palika Chauraha: The Epicenter of Haldwani's Iconic Street Food & Fast Delivery -->
+      <a href="blog-nagar-palika-food-guide.html" class="blog-card" data-category="food">
+        <div class="blog-card-img-wrap">
+          <img src="haldwani_street_food.jpg" alt="Nagar Palika Chauraha: The Epicenter of Haldwani's Iconic Street Food & Fast Delivery" loading="lazy">
+          <span class="card-badge ">Local Food Walk</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 August 05, 2026</span> • <span>⏱️ 8 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Nagar Palika Chauraha: The Epicenter of Haldwani's Iconic Street Food & Fast Delivery</h3>
+          <p class="blog-card-excerpt">Nagar Palika Chauraha is where generations of Haldwani residents have gathered for momos and street snacks. Explore its rich food heritage.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Mukhani Chauraha & Kaladhungi Road Food Guide: Top Evening Stalls, Rolls & Chowmein -->
+      <a href="blog-mukhani-food-spots.html" class="blog-card" data-category="food">
+        <div class="blog-card-img-wrap">
+          <img src="bhotia_parao_food.jpg" alt="Mukhani Chauraha & Kaladhungi Road Food Guide: Top Evening Stalls, Rolls & Chowmein" loading="lazy">
+          <span class="card-badge ">Local Food Walk</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 August 03, 2026</span> • <span>⏱️ 8 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Mukhani Chauraha & Kaladhungi Road Food Guide: Top Evening Stalls, Rolls & Chowmein</h3>
+          <p class="blog-card-excerpt">Mukhani and Kaladhungi Road are bursting with high-energy street food joints. Explore the best rolls, noodles, and quick bites in this bustling neighborhood.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Tikonia Chauraha Street Food Guide: Best Quick Bites, Chaat & Evening Snacks in Haldwani -->
+      <a href="blog-tikonia-street-food.html" class="blog-card" data-category="food">
+        <div class="blog-card-img-wrap">
+          <img src="aloo_tikki_chaat.jpg" alt="Tikonia Chauraha Street Food Guide: Best Quick Bites, Chaat & Evening Snacks in Haldwani" loading="lazy">
+          <span class="card-badge ">Local Food Walk</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 July 30, 2026</span> • <span>⏱️ 7 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Tikonia Chauraha Street Food Guide: Best Quick Bites, Chaat & Evening Snacks in Haldwani</h3>
+          <p class="blog-card-excerpt">Tikonia Chauraha connects Haldwani to Nainital Road and the civil lines. Discover why its chaat and quick bites are loved by thousands daily.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Best Desi Street Burgers in Haldwani: Crispy Tawa Patties, Spicy Chutneys & 30-Min Delivery -->
+      <a href="blog-best-burgers-in-haldwani.html" class="blog-card" data-category="food">
+        <div class="blog-card-img-wrap">
+          <img src="bhotia_parao_food.jpg" alt="Best Desi Street Burgers in Haldwani: Crispy Tawa Patties, Spicy Chutneys & 30-Min Delivery" loading="lazy">
+          <span class="card-badge ">Foodie Guide</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 July 28, 2026</span> • <span>⏱️ 8 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Best Desi Street Burgers in Haldwani: Crispy Tawa Patties, Spicy Chutneys & 30-Min Delivery</h3>
+          <p class="blog-card-excerpt">Thick spiced aloo patties, toasted buns, shredded cabbage, and secret street sauces — explore the best burgers in Haldwani.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Authentic Aloo Tikki & Chaat in Haldwani: Exploring the Heritage of Street Flavors -->
+      <a href="blog-best-chaat-aloo-tikki-haldwani.html" class="blog-card" data-category="food">
+        <div class="blog-card-img-wrap">
+          <img src="aloo_tikki_chaat.jpg" alt="Authentic Aloo Tikki & Chaat in Haldwani: Exploring the Heritage of Street Flavors" loading="lazy">
+          <span class="card-badge ">Foodie Guide</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 July 25, 2026</span> • <span>⏱️ 8 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Authentic Aloo Tikki & Chaat in Haldwani: Exploring the Heritage of Street Flavors</h3>
+          <p class="blog-card-excerpt">Ghee-roasted tikkis, chilled curd, and tangy tamarind saunth — discover the best traditional chaat spots across Haldwani.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Budget Food Guide for College Students in Haldwani: Top Delicious Meals Under ₹100 -->
+      <a href="blog-budget-food-for-students-haldwani.html" class="blog-card" data-category="food">
+        <div class="blog-card-img-wrap">
+          <img src="steamed_momos_haldwani.jpg" alt="Budget Food Guide for College Students in Haldwani: Top Delicious Meals Under ₹100" loading="lazy">
+          <span class="card-badge ">Student Guide</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 July 22, 2026</span> • <span>⏱️ 8 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Budget Food Guide for College Students in Haldwani: Top Delicious Meals Under ₹100</h3>
+          <p class="blog-card-excerpt">Hostel life in Haldwani doesn't mean boring food. Discover hearty, pocket-friendly street food meals under ₹100 delivered in 30 minutes.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Late Night Street Food Delivery in Haldwani: How to Satisfy Midnight Cravings via Streat Eats -->
+      <a href="blog-late-night-food-delivery-haldwani.html" class="blog-card" data-category="tech food">
+        <div class="blog-card-img-wrap">
+          <img src="late_night_delivery.jpg" alt="Late Night Street Food Delivery in Haldwani: How to Satisfy Midnight Cravings via Streat Eats" loading="lazy">
+          <span class="card-badge ">Night Delivery</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 July 18, 2026</span> • <span>⏱️ 7 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Late Night Street Food Delivery in Haldwani: How to Satisfy Midnight Cravings via Streat Eats</h3>
+          <p class="blog-card-excerpt">Late-night cravings strike when everything is closed. Discover how Streat Eats keeps Haldwani's top street stalls accessible late into the evening.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Streat Eats vs Other Food Apps: Why Zero Food Markup Makes All the Difference in Haldwani -->
+      <a href="blog-streat-eats-vs-zomato-swiggy.html" class="blog-card" data-category="tech">
+        <div class="blog-card-img-wrap">
+          <img src="streat_eats_delivery.jpg" alt="Streat Eats vs Other Food Apps: Why Zero Food Markup Makes All the Difference in Haldwani" loading="lazy">
+          <span class="card-badge ">Price Transparency</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 July 15, 2026</span> • <span>⏱️ 9 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Streat Eats vs Other Food Apps: Why Zero Food Markup Makes All the Difference in Haldwani</h3>
+          <p class="blog-card-excerpt">See the price breakdown comparison between Streat Eats and national aggregators. Why pay 35% extra when you can get genuine stall prices?</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- How Haldwani Street Vendors Are Boosting Daily Earnings with Streat Eats Digital Orders -->
+      <a href="blog-vendor-partner-program.html" class="blog-card" data-category="founders tech">
+        <div class="blog-card-img-wrap">
+          <img src="bhotia_parao_food.jpg" alt="How Haldwani Street Vendors Are Boosting Daily Earnings with Streat Eats Digital Orders" loading="lazy">
+          <span class="card-badge ">Vendor Community</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 July 10, 2026</span> • <span>⏱️ 8 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">How Haldwani Street Vendors Are Boosting Daily Earnings with Streat Eats Digital Orders</h3>
+          <p class="blog-card-excerpt">Read how small family-run food carts in Haldwani are reaching hundreds of new customers every day without investing in expensive hardware.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Monsoon Street Food in Haldwani: Top 7 Comfort Foods to Enjoy on Rainy Mountain Days -->
+      <a href="blog-monsoon-street-food-haldwani.html" class="blog-card" data-category="food">
+        <div class="blog-card-img-wrap">
+          <img src="steamed_momos_haldwani.jpg" alt="Monsoon Street Food in Haldwani: Top 7 Comfort Foods to Enjoy on Rainy Mountain Days" loading="lazy">
+          <span class="card-badge ">Seasonal Guide</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 July 05, 2026</span> • <span>⏱️ 8 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Monsoon Street Food in Haldwani: Top 7 Comfort Foods to Enjoy on Rainy Mountain Days</h3>
+          <p class="blog-card-excerpt">When mountain rains sweep through Haldwani, nothing beats hot momos and spicy tea. Discover the top rainy day street foods delivered in 30 mins.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- हल्द्वानी के 10 सबसे मशहूर मोमोज स्टॉल्स और उनका असली स्वाद -->
+      <a href="blog-haldwani-top-10-momos-hindi.html" class="blog-card" data-category="hindi food">
+        <div class="blog-card-img-wrap">
+          <img src="steamed_momos_haldwani.jpg" alt="हल्द्वानी के 10 सबसे मशहूर मोमोज स्टॉल्स और उनका असली स्वाद | संपूर्ण फूड गाइड (2026)" loading="lazy">
+          <span class="card-badge badge-hindi">हिन्दी फूड गाइड</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 01 जुलाई, 2026</span> • <span>⏱️ 9 मिनट पढ़ाई</span>
+          </div>
+          <h3 class="blog-card-title">हल्द्वानी के 10 सबसे मशहूर मोमोज स्टॉल्स और उनका असली स्वाद</h3>
+          <p class="blog-card-excerpt">वेज, पनीर, फ्राइड और कुरकुरे मोमोज — जानिए हल्द्वानी के सबसे लोकप्रिय 10 मोमोज स्टॉल्स और घर बैठे 30 मिनट में आर्डर करने का तरीका।</p>
+          <div class="card-read-link">पूरा लेख पढ़ें &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Inside the Code: How 21-Year-Old Karan Kumar Built Streat Eats from Haldwani, Uttarakhand -->
+      <a href="blog-karan-kumar-tech-interview.html" class="blog-card" data-category="founders tech">
+        <div class="blog-card-img-wrap">
+          <img src="founder.webp" alt="Inside the Code: How 21-Year-Old Karan Kumar Built Streat Eats from Haldwani, Uttarakhand" loading="lazy">
+          <span class="card-badge ">Engineering & Vision</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 June 25, 2026</span> • <span>⏱️ 9 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Inside the Code: How 21-Year-Old Karan Kumar Built Streat Eats from Haldwani, Uttarakhand</h3>
+          <p class="blog-card-excerpt">Go behind the scenes of Streat Eats' codebase. Learn how Karan Kumar built a lightning-fast hyperlocal delivery platform single-handedly at age 21.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+
+      <!-- Behind the 30-Minute Speed: How Lokesh Paneru Mastered Hyperlocal Logistics in Haldwani -->
+      <a href="blog-lokesh-paneru-operations-deepdive.html" class="blog-card" data-category="founders tech">
+        <div class="blog-card-img-wrap">
+          <img src="co founder.jpeg" alt="Behind the 30-Minute Speed: How Lokesh Paneru Mastered Hyperlocal Logistics in Haldwani" loading="lazy">
+          <span class="card-badge ">Operations Deep Dive</span>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>📅 June 20, 2026</span> • <span>⏱️ 8 Min Read</span>
+          </div>
+          <h3 class="blog-card-title">Behind the 30-Minute Speed: How Lokesh Paneru Mastered Hyperlocal Logistics in Haldwani</h3>
+          <p class="blog-card-excerpt">How does food arrive steaming hot in under 30 minutes in Haldwani? Meet Lokesh Paneru, the 20-year-old operations head managing the ground fleet.</p>
+          <div class="card-read-link">Read Full Article &rarr;</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Download App Banner -->
+    <section class="cta-banner">
+      <h2>Hungry in Haldwani? Order on Streat Eats Now!</h2>
+      <p>Get your favorite momos, burgers, and chaat delivered hot to your doorstep in 30 minutes at genuine stall prices with code <strong>STREAT50</strong>.</p>
+      <a href="https://play.google.com/store/apps/details?id=com.streeteats.hld&pcampaignid=web_share"
+        class="btn btn-pri" style="background: #FFF; color: var(--pri); font-weight: 800; padding: 12px 28px;" target="_blank" rel="noopener">
+        📲 Download Free Android App
+      </a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand"><span class="brand-dot"></span>Streat Eats</div>
+          <p class="footer-tagline">Your favourite street food, delivered home. Haldwani's best momos, burgers, and chaat — at your door in 30 minutes with zero markup.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#story">Our Story &amp; Founders</a></li>
+            <li><a href="blogs.html">Blog &amp; Stories</a></li>
+            <li><a href="https://app.streateats.in" target="_blank" rel="noopener">Web App</a></li>
+            <li><a href="https://instagram.com/StreatEats.hld" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Get the App</div>
+          <ul class="footer-links">
+            <li><a href="https://play.google.com/store/apps/details?id=com.streeteats.hld&pcampaignid=web_share" target="_blank" rel="noopener">Download Android App</a></li>
+            <li><a href="https://app.streateats.in" target="_blank" rel="noopener">Open iPhone Web App</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Founders</div>
+          <ul class="footer-links">
+            <li><a href="blog-karan-kumar.html">Karan Kumar (Founder &amp; CEO)</a></li>
+            <li><a href="blog-lokesh-paneru.html">Lokesh Paneru (Co-Founder &amp; Ops)</a></li>
+            <li><a href="blog-how-streat-eats-works.html">Zero Markup Model</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 Streat Eats. Founded by Karan Kumar &amp; Lokesh Paneru in Haldwani, Uttarakhand.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const mobBtn = document.getElementById('mobBtn');
+    const mobMenu = document.getElementById('mobMenu');
+    if (mobBtn && mobMenu) {
+      mobBtn.addEventListener('click', () => {
+        mobBtn.classList.toggle('active');
+        mobMenu.classList.toggle('active');
+      });
+    }
+  </script>
+
+  <script>
+    function filterPosts(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.blog-card');
+      cards.forEach(card => {
+        const itemCats = card.getAttribute('data-category') || '';
+        if (cat === 'all' || itemCats.includes(cat)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

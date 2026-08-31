@@ -1,0 +1,13 @@
+# OS & Cache
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# Scratch scripts
+fix_id.ps1
+replace.ps1
+
+# IDE
+.vscode/
+.idea/
